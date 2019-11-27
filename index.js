@@ -1,19 +1,14 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var keystone_1 = require("@keystonejs/keystone");
-var adapter_mongoose_1 = require("@keystonejs/adapter-mongoose");
-var app_graphql_1 = require("@keystonejs/app-graphql");
-var fields_1 = require("@keystonejs/fields");
-var keystone = new keystone_1.Keystone({
-    name: "Pewter City",
-    adapter: new adapter_mongoose_1.MoogooseAdapter()
-});
-keystone.createList("Todo", {
-    fields: {
-        name: { type: fields_1.Text }
-    }
+// import necessary modules
+var Keystone = require("@keystonejs/keystone").Keystone;
+var MongooseAdapter = require("@keystonejs/adapter-mongoose").MongooseAdapter;
+var GraphQLApp = require("@keystonejs/app-graphql").GraphQLApp;
+// create an instance of Keystone app
+var keystone = new Keystone({
+    name: "New Project",
+    adapter: new MongooseAdapter()
 });
 module.exports = {
     keystone: keystone,
-    apps: [new app_graphql_1.GraphQLApp()]
+    apps: [new GraphQLApp()]
 };

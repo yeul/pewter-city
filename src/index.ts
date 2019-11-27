@@ -1,17 +1,12 @@
+// import necessary modules
 import { Keystone } from "@keystonejs/keystone";
-import { MoogooseAdapter } from "@keystonejs/adapter-mongoose";
+import { MongooseAdapter } from "@keystonejs/adapter-mongoose";
 import { GraphQLApp } from "@keystonejs/app-graphql";
-import { Text } from "@keystonejs/fields";
 
+// create an instance of Keystone app
 const keystone = new Keystone({
-  name: "Pewter City",
-  adapter: new MoogooseAdapter()
-});
-
-keystone.createList("Todo", {
-  fields: {
-    name: { type: Text }
-  }
+  name: "New Project",
+  adapter: new MongooseAdapter()
 });
 
 module.exports = {
